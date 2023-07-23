@@ -1,0 +1,31 @@
+-----create a cookie store database
+
+CREATE TABLE store (id INTEGER primary key , name TEXT, quantity INTEGER, price INTEGER, color TEXT, flavor TEXT);
+
+INSERT INTO store VALUES (1, "cookie_monster", 5, 4.50, "blue", "cookie_and_milk");
+INSERT into store VALUES (2, "smores", 5, 4.00, "white_and_brown", "marshmallow_chocolate");
+INSERT INTO store VALUES (3, "chocolate_chip", 5, 3.00, "brown","chocolate_chip");
+INSERT INTO store VALUES (4, "sugar_cookie", 5, 3.00, "white", "sugar");
+INSERT INTO store VALUES (5, "gingersnap", 5, 3.00, "white", "cinnamon");
+INSERT INTO store VALUES (6, "vanilla", 5, 3.00, "white", "vanilla");
+INSERT INTO store VALUES (7, "cosmic", 5, 5.00, "purple_pink_royal_blue", "space");
+INSERT INTO store VALUES (8, "double_chocolate_chip", 5, 4.00, "brown", "chocolatey");
+INSERT INTO store VALUES (9, "teddy_bear", 5, 3.50, "beige", "graham cracker_and_honey");
+INSERT INTO store VALUES (10, "sunshine", 5, 3.50, "rainbow_colors", "vanilla");
+INSERT INTO store VALUES (11, "cookies_n_cream", 5, 3.00, "black_and_white", "oreo");
+INSERT INTO store VALUES (12, "pistachio", 5, 3.00, "green", "pistachio");
+INSERT INTO store VALUES (13, "birthday", 5, 3.50, "white_with_frosting", "vanilla");
+INSERT INTO store VALUES (14, "tooty_fruity", 5, 4.00, "red_and_pink", "raspberry_and_cherry");
+INSERT INTO store VALUES (15, "fierce", 5, 4.00, "brown", "cinnamon_and_tajin");
+
+----display the database store ordered by price.
+SELECT * from store
+ORDER BY price asc;
+
+----what is the average price from my store?
+SELECT AVG(price) from store
+
+--what are the most 5 popular items? 
+SELECT name, price, popularity from store
+ORDER BY popularity desc
+limit 5;
