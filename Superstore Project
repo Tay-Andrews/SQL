@@ -31,7 +31,7 @@ SELECT *
 FROM superstore
 ORDER BY price desc;
 
-**using aggregate functions to filter data for superstore information
+**using aggregatation functions to filter data for superstore information
 
 SELECT AVG(price), item_name
 FROM superstore
