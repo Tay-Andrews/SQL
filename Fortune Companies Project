@@ -1,0 +1,28 @@
+SELECT *
+FROM fortune_companies;
+
+SELECT COUNT(*),
+CASE WHEN avg_employee_tenure>=6.5 THEN "6.5+"
+WHEN avg_employee_tenure>=5.5 THEN "5.5+"
+WHEN avg_employee_tenure>=4.5 THEN "4.5+"
+ELSE "Under 4.5"
+END AS "tenure"
+FROM fortune_companies
+GROUP BY tenure;
+
+SELECT company_id
+,ROUND(revenue) as whole_revenue
+FROM fortune_companies;
+
+SELECT maternity_leave_weeks, paid_time_off_days, company_name
+FROM fortune_companies
+WHERE maternity_leave_weeks>=8
+AND paid_time_off_days>=15;
+
+SELECT MAX(revenue), company_name
+FROM fortune_companies;
+
+SELECT company_name, SUM(revenue) as total_revenue
+FROM fortune_companies
+GROUP BY company_name
+HAVING SUM(revenue)>=140000;
