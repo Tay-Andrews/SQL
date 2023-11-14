@@ -1,0 +1,39 @@
+SELECT * FROM "netflix_titles_info" LIMIT 5
+
+SELECT * FROM "netflix_people" LIMIT 5
+
+SELECT NP.show_id,
+NP.director,
+NTI.title,
+NTI.type
+FROM "netflix_people" NP
+LEFT JOIN "netflix_titles_info" NTI
+ON NP.show_id = NTI.show_id
+
+**Number of movie titles in database**
+SELECT count(*) FROM "netflix_titles_info"
+WHERE "type"='Movie'
+
+**When was the most recent update**
+select max(date(date_added))
+FROM "netflix_titles_info";
+
+**List all the movies and tv shows in alphabetical order**
+SELECT "title"
+FROM "netflix_titles_info"
+WHERE "type" = 'Movie'
+ORDER BY "title" asc;
+
+**Who is the director for the movie The Starling**
+SELECT "director"
+FROM "netflix_titles_info" titles
+LEFT JOIN "netflix_people" people
+ON titles.show_id=people.show_id
+WHERE titles.title ='The Starling';
+
+**What is the oldest movie in the database and what year was it made**
+SELECT "type", "release_year", "title"
+FROM "netflix_titles_info"
+WHERE "type" = 'Movie'
+ORDER BY "release_year" asc
+LIMIT 1;
